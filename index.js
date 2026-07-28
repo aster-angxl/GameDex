@@ -1,1 +1,1 @@
-
+console.log("GameDex démarre!")
