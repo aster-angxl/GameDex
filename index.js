@@ -11,9 +11,24 @@ client.commands = new Collection();
 const genshin = require("./genshin.js");
 client.commands.set(genshin.data.name, genshin);
 
-client.once("ready", () => {
+client.once("ready", async () => {
   console.log(`Connecté en tant que ${client.user.tag}`);
-});
+  const {REST, Routes}=
+  require ("discord.js");
+  const genshin = require ("./genshin.js");
+  const rest = new 
+  REST ({version:"10"}).setToken(process.env.DISCORD_TOKEN)
+
+  try {
+    await rest.put(
+    Routes.applicationCommands(client.user.id),
+  {body:
+  [genshin.data.toJSON()] }
+    );
+    console.log("Commande /build enregistrée!");
+  } catch (error) {console.error(error);
+  }
+  });
 
 client.on("interactionCreate", async interaction => {
   if (!interaction.isChatInputCommand()) return;
@@ -34,3 +49,5 @@ client.on("interactionCreate", async interaction => {
 });
 
 client.login(process.env.DISCORD_TOKEN);
+console.log("Fin du fichier index.js atteinte");
+
