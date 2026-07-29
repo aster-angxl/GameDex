@@ -15,46 +15,47 @@ module.exports = {
     const personnage = interaction.options.getString("personnage").toLowerCase();
 
     const builds = {
-      venti: {
-        nom: "Venti",
-        texte : 
-         '**Venti**
+     venti: {
+    nom: "Venti",
+    texte: `
+🌪️ **Venti**
 
-        Global Rating : S
-        ------------------------
-        Main DPS : S
-        Sub-DPS : S
-        Support : -
-        Exploration : SS
-       ------------------------
-         **Hexrei Main DPS**
+⭐ **Global Rating:** S
 
-         **Best Weapon**
-         The Daybreak Chronicles
-         
-         **Replacement Weapon**
-         1.Astral Vulture's Crimson
-         2.Aqua Simulacra
-         3.Compound Bow
+⚔️ **Main DPS:** S
+🔹 **Sub-DPS:** S
+🛡️ **Support:** -
+🗺️ **Exploration:** SS
 
-         **Best Artifacts**
-         A Day Carved from Rising Winds (4pcs)
-           
-         **Artifact Main Stats**
-           -Sands : ATK%
-           -Goblet : Anemo DMG Bonus
-           -Circlet : CRIT Rate or CRIT DMG
+**Rôle : Main DPS**
 
-         **Artifact Sub Stats**
-           -Elemental Mastery
-           -Energy Recharge
-           -ATK%
-           -CRIT Rate
-           -CRIT DMG
-           
-         **Sample Team**
-            Venti-Durin-Faruzan-Bennett
-    '
+🏹 **Best Weapon**
+The Daybreak Chronicles
+
+🔄 **Replacement Weapons**
+1. Astral Vulture's Crimson Plumage
+2. Aqua Simulacra
+3. Compound Bow
+
+📖 **Best Artifacts**
+A Day Carved from Rising Winds (4pcs)
+
+📊 **Artifact Main Stats**
+• Sands: ATK %
+• Goblet: Anemo DMG Bonus
+• Circlet: CRIT Rate ou CRIT DMG
+
+📈 **Artifact Sub Stats**
+• Elemental Mastery
+• Energy Recharge
+• ATK %
+• CRIT Rate
+• CRIT DMG
+
+👥 **Sample Team**
+Venti - Bennett - Faruzan - Durin
+`
+},
   }
 };
 
