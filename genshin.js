@@ -16,7 +16,7 @@ module.exports = {
 
     await interaction.reply(
       `La fiche de build de **${personnage}** est en préparation !`,
-      ephemeral:true
+      ephemeral: true
     );
   }
 };
