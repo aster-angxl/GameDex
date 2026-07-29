@@ -1,23 +1,25 @@
 const { SlashCommandBuilder, MessageFlags } = require("discord.js");
 
 module.exports = {
-  data: new SlashCommandBuilder()
-    .setName("build")
-    .setDescription("Affiche un build Genshin")
-    .addStringOption(option =>
-      option
-        .setName("personnage")
-        .setDescription("Nom du personnage")
-        .setRequired(true)
-    ),
+    data: new SlashCommandBuilder()
+        .setName("build")
+        .setDescription("Affiche un build Genshin")
+        .addStringOption(option =>
+            option
+                .setName("personnage")
+                .setDescription("Nom du personnage")
+                .setRequired(true)
+        ),
 
-  async execute(interaction) {
-    const personnage = interaction.options.getString("personnage").toLowerCase();
+    async execute(interaction) {
 
-    const builds = {
-     venti: {
-    nom: "Venti",
-    texte: `
+        const personnage = interaction.options.getString("personnage").toLowerCase();
+
+        const builds = {
+
+            venti: {
+                nom: "Venti",
+                texte: `
 🌪️ **Venti**
 
 ⭐ **Global Rating:** S
@@ -55,25 +57,25 @@ A Day Carved from Rising Winds (4pcs)
 👥 **Sample Team**
 Venti - Bennett - Faruzan - Durin
 `
-},
-  }
-};
+            }
 
-if (builds[personnage])
-{
-  await
-    interaction.reply({
-      content :
-        builds[personnage]. texte,
-     flags :
-       MessageFlags.Ephemeral,
-    });
-}else{
-    
-    await interaction.reply({
-      content: `La fiche de build de **${personnage}** est en préparation !`,
-      flags :
-        MessageFlags.Ephemeral,
-    });
-  }
+        };
+
+
+        if (builds[personnage]) {
+
+            await interaction.reply({
+                content: builds[personnage].texte,
+                flags: MessageFlags.Ephemeral,
+            });
+
+        } else {
+
+            await interaction.reply({
+                content: `La fiche de build de **${personnage}** est en préparation !`,
+                flags: MessageFlags.Ephemeral,
+            });
+
+        }
+    }
 };
