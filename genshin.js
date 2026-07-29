@@ -37,6 +37,7 @@ Hexerei Main DPS / Sub-DPS
                         `
                     },
 
+
                     {
                         title: "🏹 Venti - Builds & Équipements",
                         description: `
@@ -89,6 +90,7 @@ Viridescent Venerer (4pcs)
                         `
                     },
 
+
                     {
                         title: "⚔️ Venti - Crit Burst & Talents",
                         description: `
@@ -133,6 +135,7 @@ Elemental Burst > Elemental Skill > Normal Attack
                         `
                     },
 
+
                     {
                         title: "👥 Venti - Teams",
                         description: `
@@ -162,10 +165,13 @@ Fischl - Xingqiu - Venti - Collei
 Ayato - Venti - Ororon - Fischl
 
 Neuvillette - Venti - Ororon - Furina
+                        `
+                    },
 
-{
-    title: "✨ Venti - Best Constellations",
-    description: `
+
+                    {
+                        title: "✨ Venti - Best Constellations",
+                        description: `
 ✨ **Best Constellations**
 
 C1  
@@ -178,8 +184,6 @@ C6
 ⭐⭐☆
 
 ━━━━━━━━━━━━━━━━━━
-    `
-}
                         `
                     }
 
@@ -200,9 +204,10 @@ C6
                     })
             );
 
+
             await interaction.reply({
                 embeds: embeds,
-                flags: MessageFlags.Ephemeral,
+                flags: MessageFlags.Ephemeral
             });
 
 
@@ -210,7 +215,7 @@ C6
 
             await interaction.reply({
                 content: `La fiche de build de **${personnage}** est en préparation !`,
-                flags: MessageFlags.Ephemeral,
+                flags: MessageFlags.Ephemeral
             });
 
         }
