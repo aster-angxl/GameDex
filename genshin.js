@@ -162,6 +162,24 @@ Fischl - Xingqiu - Venti - Collei
 Ayato - Venti - Ororon - Fischl
 
 Neuvillette - Venti - Ororon - Furina
+
+{
+    title: "✨ Venti - Best Constellations",
+    description: `
+✨ **Best Constellations**
+
+C1  
+⭐⭐☆
+
+C2  
+⭐⭐⭐
+
+C6  
+⭐⭐☆
+
+━━━━━━━━━━━━━━━━━━
+    `
+}
                         `
                     }
 
