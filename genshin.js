@@ -75,8 +75,27 @@ Venti - Bennett - Faruzan - Durin
 
 **Artifact Sub Stats** : Elemental Mastery, Energy Recharge, ATK %, CRIT Rate, CRIT DMG
 
-**Sample Team** : Venti, Ayaka, Mona, Diona
-                  Venti, Raiden, Nahida, Kokomi
+**Sample Team** : Freeze : Venti, Ayaka, Mona, Diona
+                  Hyperbloom : Venti, Raiden, Nahida, Kokomi
+-------------------------------------------------------------
+**Crit Burst DPS**
+
+**Best Weapon** → Aqua Simulacra
+
+**Replacement Weapon** : 1 : Elegy for the End
+                         2 : Skyward Harp
+                         3 : The Stringless
+
+**Best Artifacts** : Viridescent Venerer (4pcs)
+
+**Artifact Main Stats** : Sands : ATK %
+                          Goblet : Anemo DMG Bonus
+                          Circlet : CRIT Rate or CRIT DMG
+
+**Artifact Sub Stats** : CRIT Rate, CRIT DMG, Elemental Mastery, Energy Recharge 
+
+**Sample Team** : Freeze : Venti, Ayaka, Mona, Diona
+                  Hyperbloom : Venti, Raiden, Nahida, Kokomi
 `
             }
 
