@@ -183,10 +183,7 @@ Neuvillette - Venti  -      Ororon     -      Furina
 
         if (builds[personnage]) {
 
-            await interaction.reply({
-                content: builds[personnage].texte,
-                flags: MessageFlags.Ephemeral,
-            });
+           const { EmbedBuilder } = require("discord.js");
 
         } else {
 
