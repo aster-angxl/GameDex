@@ -17,10 +17,13 @@ module.exports = {
 
         const builds = {
 
-            venti: {
-                nom: "Venti",
+venti: {
+    nom: "Venti",
 
-                embeds: [
+    source: "Game8",
+    update: "30/07/2026",
+
+    embeds: [
 
                     {
                         title: "🌪️ Venti - Informations",
@@ -199,9 +202,9 @@ C6
                 new EmbedBuilder()
                     .setTitle(e.title)
                     .setDescription(e.description)
-                    .setFooter({
-                        text: "GameDex • Genshin Impact Builds"
-                    })
+                   .setFooter({
+    text: `GameDex • Source : ${builds[personnage].source} • Update : ${builds[personnage].update}`
+})
             );
 
 
