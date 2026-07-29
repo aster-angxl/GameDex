@@ -1,22 +1,4 @@
-const { SlashCommandBuilder, MessageFlags, EmbedBuilder } = require("discord.js");
-
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName("build")
-        .setDescription("Affiche un build Genshin")
-     .addStringOption(option =>
-    option
-        .setName("personnage")
-        .setDescription("Nom du personnage")
-        .setRequired(true)
-        .setAutocomplete(true)
-),
-
-    async execute(interaction) {
-
-        const personnage = interaction.options.getString("personnage").toLowerCase();
-
-        const builds = {
 
 venti: {
     nom: "Venti",
