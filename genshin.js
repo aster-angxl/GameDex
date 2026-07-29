@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, MessageFlags } = require("discord.js");
+const { SlashCommandBuilder, MessageFlags, EmbedBuilder } = require("discord.js");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -23,12 +23,12 @@ module.exports = {
 🌪️ **Venti**
 
 ⭐ **Global Rating:** S
----------------------
+
 ⚔️ **Main DPS:** S
 🔹 **Sub-DPS:** S
 🛡️ **Support:** -
 🗺️ **Exploration:** SS
----------------------
+
 **Hexrei Main DPS**
 
 🏹 **Best Weapon**
@@ -64,8 +64,15 @@ Venti - Bennett - Faruzan - Durin
 
         if (builds[personnage]) {
 
+            const embed = new EmbedBuilder()
+                .setTitle(`🌪️ ${builds[personnage].nom}`)
+                .setDescription(builds[personnage].texte)
+                .setFooter({
+                    text: "GameDex • Genshin Impact Builds"
+                });
+
             await interaction.reply({
-                content: builds[personnage].texte.substring(0, 1900),
+                embeds: [embed],
                 flags: MessageFlags.Ephemeral,
             });
 
