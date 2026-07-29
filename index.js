@@ -1,9 +1,10 @@
-const { Client, GatewayIntentBits, Collection } = require("discord.js");
+const { Client, 
+GatewayIntentBits, Collection } 
+= require("discord.js");
 
 const client = new Client({
-  intents: [
-    GatewayIntentBits.Guilds
-  ]
+  intents: 
+  [GatewayIntentBits.Guilds]
 });
 
 client.commands = new Collection();
@@ -34,7 +35,6 @@ client.on("interactionCreate", async interaction => {
   if (!interaction.isChatInputCommand()) return;
 
   const command = client.commands.get(interaction.commandName);
-
   if (!command) return;
 
   try {
@@ -48,6 +48,34 @@ client.on("interactionCreate", async interaction => {
   }
 });
 
-client.login(process.env.DISCORD_TOKEN);
-console.log("Fin du fichier index.js atteinte");
+console.log("Token présent:", !!
+process.env.DISCORD_TOKEN);
 
+client.on("error", err =>
+console.error(err));
+
+client.on("debug", msg =>
+console.log("[DEBUG]", msg));
+
+client.on("warn", msg =>
+console.log("[WARN]", msg));
+
+client.on("shardError", err =>
+console.error(err));
+
+client.on("shardReady", (id) =>
+{
+console.log("Shard prêt:",
+id);
+});
+
+client.on("invalidated", () => {console.log("Session invalidée");
+});
+
+console.log("Avant login");
+
+client.login(process.env.DISCORD_TOKEN)
+.then(()=>
+console.log("Login envoyé à Discord"))
+.catch(err=>
+console.error("Erreur de login;", err));
