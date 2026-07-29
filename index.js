@@ -2,7 +2,7 @@ const { Client,
 GatewayIntentBits, Collection } 
 = require("discord.js");
 
-const http = require("http);
+const http = require("http");
                      http.createServer((req, res)  => {
                        res.writeHead(200);
                        res.end("Bot en ligne !");
