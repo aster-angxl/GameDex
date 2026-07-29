@@ -23,13 +23,13 @@ module.exports = {
 🌪️ **Venti**
 
 ⭐ **Global Rating:** S
-
+---------------------
 ⚔️ **Main DPS:** S
 🔹 **Sub-DPS:** S
 🛡️ **Support:** -
 🗺️ **Exploration:** SS
-
-**Rôle : Main DPS**
+---------------------
+**Hexrei Main DPS**
 
 🏹 **Best Weapon**
 The Daybreak Chronicles
@@ -56,6 +56,27 @@ A Day Carved from Rising Winds (4pcs)
 
 👥 **Sample Team**
 Venti - Bennett - Faruzan - Durin
+---------------------
+**Sub-DPS Builds**
+----------------
+**Elemental Mastery Swirl**
+
+**Best Weapon** → Elegy for the End
+
+**Replacement Weapon** : 1 : The Stringless
+                         2 : Fading Twilight
+                         3 :Favonius Warbow
+
+**Best Artifacts** : Viridescent Venerer (4pcs)
+
+**Artifact Main Stats** : Sands : Elemental Mastery
+                          Goblet : Elemental Mastery
+                          Circlet : Elemental Mastery  
+
+**Artifact Sub Stats** : Elemental Mastery, Energy Recharge, ATK %, CRIT Rate, CRIT DMG
+
+**Sample Team** : Venti, Ayaka, Mona, Diona
+                  Venti, Raiden, Nahida, Kokomi
 `
             }
 
