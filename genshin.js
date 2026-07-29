@@ -53,8 +53,8 @@ module.exports = {
            -CRIT DMG
            
          **Sample Team**
-            Venti-Durin-Faruzan-Bennett
-  '}
+            Venti-Durin-Faruzan-Bennett'
+  }
 };
 
 if (builds[personnage])
