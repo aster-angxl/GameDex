@@ -132,7 +132,50 @@ The Stringless
 3. The Stringless
 
 🏹**Best F2P** :
-`The Stringless
+The Stringless
+-------------------------------------------------------------
+**Notable Teammates** :
+**Main DPS** : 
+Varka, Nicole, Klee, Ganyu
+
+**Sub-DPS** : 
+Durin, Lisa, Ineffa
+
+**Support** :
+Bennett
+
+**Hexerei Teams** :
+**Main DPS - Sub-DPS – Sub-DPS - Sub-DPS/Support**
+    Varka  -  Venti  -  Durin  -     Nicole
+    Venti  - Faruzan -  Durin  -     Bennett
+    Venti  -  Fischl - Xingqiu -     Bennett
+
+**Freeze Teams** : 
+**Main DPS – Sub-DPS – Support – Support**
+    Ayaka  -  Venti  -   Mona  -  Diona
+    Ganyu  -  Venti  -  Shenhe -  Kokomi
+
+**Electro-Charged Teams** :
+**Main DPS – Sub-DPS – Sub-DPS/Support – Sub-DPS/Support**
+    Ayato  -  Venti  -      Ororon     -      Fischl
+Neuvillette - Venti  -      Ororon     -      Furina
+
+**Hyperbloom Teams** : 
+**Main DPS – Sub-DPS – Support – Support**
+   Raiden  –  Nahida –  Venti  -  Kokomi
+    Fischl - Xingqiu -  Venti  -  Collei
+
+**Rainbow Teams** :
+**Main DPS – Sub-DPS – Sub-DPS – Sub-DPS/Support**
+   Mizuki  -  Venti  –  Fischl -    Xiangling
+    Ayato  -  Venti  -  Fischl -    Bennett
+
+**Air Fryer Teams** :
+**Main DPS – Sub-DPS – Sub-DPS – Sub-DPS/Support**
+   Nahida  -  Venti  -  Kazuha -    Bennett
+   Emilie  -  Venti  -  Sucrose -   Bennett
+-----------------------------------------------------------------------------------
+  '              
             }
 
         };
