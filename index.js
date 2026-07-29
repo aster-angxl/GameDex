@@ -2,6 +2,14 @@ const { Client,
 GatewayIntentBits, Collection } 
 = require("discord.js");
 
+const http = require("http);
+                     http.createServer((req, res)  => {
+                       res.writeHead(200);
+                       res.end("Bot en ligne !");
+                     }).listen(process.env.PORT || 3000,() => {
+                       console.log("Serveur web démarré pour Render");
+                     });
+
 const client = new Client({
   intents: 
   [GatewayIntentBits.Guilds]
