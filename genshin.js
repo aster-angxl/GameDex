@@ -17,7 +17,7 @@ module.exports = {
     const builds = {
       venti: {
         nom: "Venti",
-        texte :
+        texte : '
           **Venti**
 
         Global Rating : S
@@ -54,7 +54,7 @@ module.exports = {
            
          **Sample Team**
             Venti-Durin-Faruzan-Bennett
-  }
+  '}
 };
 
 if (builds[personnage])
