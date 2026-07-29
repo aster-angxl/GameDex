@@ -18,7 +18,7 @@ module.exports = {
       venti: {
         nom: "Venti",
         texte : 
-         ' **Venti**
+         '**Venti**
 
         Global Rating : S
         ------------------------
