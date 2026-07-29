@@ -4,12 +4,13 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("build")
         .setDescription("Affiche un build Genshin")
-        .addStringOption(option =>
-            option
-                .setName("personnage")
-                .setDescription("Nom du personnage")
-                .setRequired(true)
-        ),
+     .addStringOption(option =>
+    option
+        .setName("personnage")
+        .setDescription("Nom du personnage")
+        .setRequired(true)
+        .setAutocomplete(true)
+),
 
     async execute(interaction) {
 
