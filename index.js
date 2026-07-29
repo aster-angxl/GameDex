@@ -40,7 +40,87 @@ client.once("ready", async () => {
   });
 
 client.on("interactionCreate", async interaction => {
+
+
+  // AUTOCOMPLÉTION
+  if (interaction.isAutocomplete()) {
+
+    const texte = interaction.options.getFocused().toLowerCase();
+
+    let personnages = [];
+
+
+    // Salon Genshin
+    if (interaction.channel.name === "genshin") {
+
+      personnages = [
+        "Venti",
+        "Furina",
+        "Navia",
+        "Zhongli",
+        "Raiden Shogun"
+      ];
+
+    }
+
+
+    // Salon Honkai Star Rail
+    else if (interaction.channel.name === "honkai-star-rail") {
+
+      personnages = [
+        "Herta",
+        "Kafka",
+        "Firefly",
+        "Acheron"
+      ];
+
+    }
+
+
+    const resultats = personnages
+      .filter(p =>
+        p.toLowerCase().startsWith(texte)
+      )
+      .slice(0, 25);
+
+
+    await interaction.respond(
+      resultats.map(p => ({
+        name: p,
+        value: p
+      }))
+    );
+
+    return;
+  }
+
+
+
+  // COMMANDES NORMALES
   if (!interaction.isChatInputCommand()) return;
+
+
+  const command = client.commands.get(interaction.commandName);
+  if (!command) return;
+
+
+  try {
+
+    await command.execute(interaction);
+
+
+  } catch (error) {
+
+    console.error(error);
+
+    await interaction.reply({
+      content: "Une erreur est survenue.",
+      ephemeral: true
+    });
+
+  }
+
+});
 
   const command = client.commands.get(interaction.commandName);
   if (!command) return;
