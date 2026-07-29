@@ -96,6 +96,29 @@ Venti - Bennett - Faruzan - Durin
 
 👥**Sample Team** : Freeze : Venti, Ayaka, Mona, Diona
                     Hyperbloom : Venti, Raiden, Nahida, Kokomi
+---------------------------------------------------
+**Talent Priority**
+
+**Main DPS Hexerei** :
+Normal Attack > Elemental Burst > Elemental Skill
+
+**Sub-DPS** :
+Elemental Burst > Elemental Skill > Normal Attack (Can be ignored or saved for last)
+------------------------------------------------------
+**Best Hexerei Artifacts** :
+1. A Day Carved from Rising Winds
+2. Viridescent Venerer
+3. Desert Pavillon Chronicle
+
+**Best Artifacts** :
+1. Viridescent Venerer
+2. Emblem of Severed Fate
+3. Nobless Oblige
+
+**Best 4-Star Artifact** :
+The Exile
+-------------------------------------------------------
+
 `
             }
 
