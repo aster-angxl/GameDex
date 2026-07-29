@@ -142,6 +142,26 @@ Elemental Burst > Elemental Skill > Normal Attack
                     {
                         title: "👥 Venti - Teams",
                         description: `
+## 🤝 Compagnons notables
+
+**⚔️ Main DPS**
+• Varka
+• Nicole
+• Klee
+• Ganyu
+
+**🔹 Sub-DPS**
+• Durin
+• Lisa
+• Ineffa
+
+**🛡️ Support**
+• Bennett
+
+
+━━━━━━━━━━━━━━━━━━
+
+
 ## 🌪️ Hexerei Teams
 
 Venti - Faruzan - Durin - Bennett
@@ -168,7 +188,7 @@ Fischl - Xingqiu - Venti - Collei
 Ayato - Venti - Ororon - Fischl
 
 Neuvillette - Venti - Ororon - Furina
-                        `
+`
                     },
 
 
