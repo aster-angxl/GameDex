@@ -14,9 +14,9 @@ module.exports = {
   async execute(interaction) {
     const personnage = interaction.options.getString("personnage");
 
-    await interaction.reply(
-      `La fiche de build de **${personnage}** est en préparation !`,
-      ephemeral: true
-    );
+    await interaction.reply({
+      content: `La fiche de build de **${personnage}** est en préparation !`,
+      ephemeral: true,
+    });
   }
 };
