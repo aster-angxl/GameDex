@@ -17,14 +17,14 @@ module.exports = {
 
         const builds = {
 
-         venti: {
-    nom: "Venti",
+            venti: {
+                nom: "Venti",
 
-    embeds: [
+                embeds: [
 
-        {
-            title: "🌪️ Venti - Informations",
-            description: `
+                    {
+                        title: "🌪️ Venti - Informations",
+                        description: `
 ⭐ **Global Rating:** S
 
 ⚔️ **Main DPS:** S
@@ -34,14 +34,12 @@ module.exports = {
 
 **Rôle :**
 Hexerei Main DPS / Sub-DPS
+                        `
+                    },
 
-━━━━━━━━━━━━━━━━━━
-`
-        },
-
-        {
-            title: "🏹 Venti - Builds & Équipements",
-            description: `
+                    {
+                        title: "🏹 Venti - Builds & Équipements",
+                        description: `
 ## 🌪️ Hexerei Main DPS
 
 🏹 **Best Weapon**
@@ -67,7 +65,9 @@ A Day Carved from Rising Winds (4pcs)
 • CRIT Rate
 • CRIT DMG
 
+
 ━━━━━━━━━━━━━━━━━━
+
 
 ## 🌪️ Elemental Mastery Swirl
 
@@ -79,19 +79,19 @@ Elegy for the End
 2. Fading Twilight
 3. Favonius Warbow
 
-📖 **Artifacts**
+📖 **Best Artifacts**
 Viridescent Venerer (4pcs)
 
 📊 **Main Stats**
 • Sands: Elemental Mastery
 • Goblet: Elemental Mastery
 • Circlet: Elemental Mastery
-`
-        },
+                        `
+                    },
 
-        {
-            title: "⚔️ Venti - Crit Burst & Talents",
-            description: `
+                    {
+                        title: "⚔️ Venti - Crit Burst & Talents",
+                        description: `
 ## 💥 Crit Burst DPS
 
 🏹 **Best Weapon**
@@ -102,13 +102,16 @@ Aqua Simulacra
 2. Skyward Harp
 3. The Stringless
 
-📖 **Artifacts**
+
+📖 **Best Artifacts**
 Viridescent Venerer (4pcs)
+
 
 📊 **Main Stats**
 • Sands: ATK %
 • Goblet: Anemo DMG Bonus
 • Circlet: CRIT Rate / CRIT DMG
+
 
 📈 **Sub Stats**
 • CRIT Rate
@@ -116,7 +119,9 @@ Viridescent Venerer (4pcs)
 • Elemental Mastery
 • Energy Recharge
 
+
 ━━━━━━━━━━━━━━━━━━
+
 
 ## 📖 Talent Priority
 
@@ -125,15 +130,13 @@ Normal Attack > Elemental Burst > Elemental Skill
 
 **Sub-DPS**
 Elemental Burst > Elemental Skill > Normal Attack
-`
-        },
+                        `
+                    },
 
-        {
-            title: "👥 Venti - Teams",
-            description: `
+                    {
+                        title: "👥 Venti - Teams",
+                        description: `
 ## 🌪️ Hexerei Teams
-
-**Main DPS - Sub-DPS - Sub-DPS - Support**
 
 Venti - Faruzan - Durin - Bennett
 
@@ -159,16 +162,16 @@ Fischl - Xingqiu - Venti - Collei
 Ayato - Venti - Ororon - Fischl
 
 Neuvillette - Venti - Ororon - Furina
-`
-        }
+                        `
+                    }
 
-    ]
-}
+                ]
             }
 
         };
 
- if (builds[personnage]) {
+
+        if (builds[personnage]) {
 
             const embeds = builds[personnage].embeds.map(e =>
                 new EmbedBuilder()
@@ -195,4 +198,3 @@ Neuvillette - Venti - Ororon - Furina
         }
     }
 };
-        
