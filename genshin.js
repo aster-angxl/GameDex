@@ -17,8 +17,8 @@ module.exports = {
     const builds = {
       venti: {
         nom: "Venti",
-        texte : '
-          **Venti**
+        texte : 
+         ' **Venti**
 
         Global Rating : S
         ------------------------
@@ -53,7 +53,8 @@ module.exports = {
            -CRIT DMG
            
          **Sample Team**
-            Venti-Durin-Faruzan-Bennett'
+            Venti-Durin-Faruzan-Bennett
+    '
   }
 };
 
