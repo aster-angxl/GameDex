@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, MessageFlags } = require("discord.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -63,13 +63,15 @@ if (builds[personnage])
     interaction.reply({
       content :
         builds[personnage]. texte,
-      ephemeral:true,
+     flags :
+       MessageFlags.Ephemeral,
     });
 }else{
     
     await interaction.reply({
       content: `La fiche de build de **${personnage}** est en préparation !`,
-      ephemeral: true,
+      flags :
+        MessageFlags.Ephemeral,
     });
   }
 };
