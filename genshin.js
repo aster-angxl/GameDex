@@ -105,21 +105,34 @@ Normal Attack > Elemental Burst > Elemental Skill
 **Sub-DPS** :
 Elemental Burst > Elemental Skill > Normal Attack (Can be ignored or saved for last)
 ------------------------------------------------------
-**Best Hexerei Artifacts** :
+📖**Best Hexerei Artifacts** :
 1. A Day Carved from Rising Winds
 2. Viridescent Venerer
 3. Desert Pavillon Chronicle
 
-**Best Artifacts** :
+📖**Best Artifacts** :
 1. Viridescent Venerer
 2. Emblem of Severed Fate
 3. Nobless Oblige
 
-**Best 4-Star Artifact** :
+📖**Best 4-Star Artifact** :
 The Exile
 -------------------------------------------------------
+🏹**Best Hexerei Weapons** :
+1. The Daybreak Chronicles
+2. Astral Vulture’s Crimson Plumage
+3. Aqua Simulacra
 
-`
+🏹**Best F2P** :
+The Stringless
+----------------------------------
+🏹**Best Weapons** :
+1. The Daybreak Chronicles
+2. Elegy for the End
+3. The Stringless
+
+🏹**Best F2P** :
+`The Stringless
             }
 
         };
