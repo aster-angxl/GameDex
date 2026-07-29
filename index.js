@@ -51,7 +51,7 @@ client.on("interactionCreate", async interaction => {
 
 
     // Salon Genshin
-    if (interaction.channel.name === "genshin") {
+    if (interaction.channel.name === "genshin-impact") {
 
       personnages = [
         "Venti",
