@@ -1,16 +1,20 @@
 module.exports = {
 
-venti: {
-    nom: "Venti",
+    venti: {
 
-    source: "Game8",
-    update: "30/07/2026",
+        nom: "Venti",
 
-    embeds: [
+        source: "Game8",
 
-                    {
-                        title: "🌪️ Venti - Informations",
-                        description: `
+        update: "30/07/2026",
+
+
+        embeds: [
+
+            {
+                title: "🌪️ Venti - Informations",
+
+                description: `
 ⭐ **Global Rating:** S
 
 ⚔️ **Main DPS:** S
@@ -20,13 +24,14 @@ venti: {
 
 **Rôle :**
 Hexerei Main DPS / Sub-DPS
-                        `
-                    },
+`
+            },
 
 
-                    {
-                        title: "🏹 Venti - Builds & Équipements",
-                        description: `
+            {
+                title: "🏹 Venti - Builds & Équipements",
+
+                description: `
 ## 🌪️ Hexerei Main DPS
 
 🏹 **Best Weapon**
@@ -37,13 +42,16 @@ The Daybreak Chronicles
 2. Aqua Simulacra
 3. Compound Bow
 
+
 📖 **Best Artifacts**
 A Day Carved from Rising Winds (4pcs)
+
 
 📊 **Main Stats**
 • Sands: ATK %
 • Goblet: Anemo DMG Bonus
 • Circlet: CRIT Rate / CRIT DMG
+
 
 📈 **Sub Stats**
 • Elemental Mastery
@@ -51,45 +59,18 @@ A Day Carved from Rising Winds (4pcs)
 • ATK %
 • CRIT Rate
 • CRIT DMG
+`
+            },
 
 
-━━━━━━━━━━━━━━━━━━
+            {
+                title: "⚔️ Venti - Crit Burst & Talents",
 
-
-## 🌪️ Elemental Mastery Swirl
-
-🏹 **Best Weapon**
-Elegy for the End
-
-🔄 **Replacement Weapons**
-1. The Stringless
-2. Fading Twilight
-3. Favonius Warbow
-
-📖 **Best Artifacts**
-Viridescent Venerer (4pcs)
-
-📊 **Main Stats**
-• Sands: Elemental Mastery
-• Goblet: Elemental Mastery
-• Circlet: Elemental Mastery
-                        `
-                    },
-
-
-                    {
-                        title: "⚔️ Venti - Crit Burst & Talents",
-                        description: `
+                description: `
 ## 💥 Crit Burst DPS
 
 🏹 **Best Weapon**
 Aqua Simulacra
-
-🔄 **Replacement Weapons**
-1. Elegy for the End
-2. Skyward Harp
-3. The Stringless
-
 
 📖 **Best Artifacts**
 Viridescent Venerer (4pcs)
@@ -101,83 +82,40 @@ Viridescent Venerer (4pcs)
 • Circlet: CRIT Rate / CRIT DMG
 
 
-📈 **Sub Stats**
-• CRIT Rate
-• CRIT DMG
-• Elemental Mastery
-• Energy Recharge
+📖 **Talent Priority**
 
-
-━━━━━━━━━━━━━━━━━━
-
-
-## 📖 Talent Priority
-
-**Main DPS Hexerei**
 Normal Attack > Elemental Burst > Elemental Skill
-
-**Sub-DPS**
-Elemental Burst > Elemental Skill > Normal Attack
-                        `
-                    },
+`
+            },
 
 
-                    {
-                        title: "👥 Venti - Teams",
-                        description: `
+            {
+                title: "👥 Venti - Teams",
+
+                description: `
 ## 🤝 Compagnons notables
 
-**⚔️ Main DPS**
+⚔️ **Main DPS**
 • Varka
 • Nicole
 • Klee
 • Ganyu
 
-**🔹 Sub-DPS**
+🔹 **Sub-DPS**
 • Durin
 • Lisa
 • Ineffa
 
-**🛡️ Support**
+🛡️ **Support**
 • Bennett
-
-
-━━━━━━━━━━━━━━━━━━
-
-
-## 🌪️ Hexerei Teams
-
-Venti - Faruzan - Durin - Bennett
-
-Venti - Fischl - Xingqiu - Bennett
-
-
-## ❄️ Freeze Teams
-
-Ayaka - Venti - Mona - Diona
-
-Ganyu - Venti - Shenhe - Kokomi
-
-
-## 🌱 Hyperbloom Teams
-
-Raiden - Nahida - Venti - Kokomi
-
-Fischl - Xingqiu - Venti - Collei
-
-
-## ⚡ Electro-Charged Teams
-
-Ayato - Venti - Ororon - Fischl
-
-Neuvillette - Venti - Ororon - Furina
 `
-                    },
+            },
 
 
-                                     {
-                        title: "✨ Venti - Best Constellations",
-                        description: `
+            {
+                title: "✨ Venti - Constellations",
+
+                description: `
 ✨ **Best Constellations**
 
 C1  
@@ -190,10 +128,11 @@ C6
 ⭐⭐☆
 
 ━━━━━━━━━━━━━━━━━━
-                        `
-                    }
-
-                ]
+`
             }
+
+        ]
+
+    }
 
 };
