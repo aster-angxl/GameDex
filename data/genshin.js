@@ -21,9 +21,6 @@ module.exports = {
 🔹 **Sub-DPS:** S
 🛡️ **Support:** -
 🗺️ **Exploration:** SS
-
-**Rôle :**
-Hexerei Main DPS / Sub-DPS
 `
             },
 
