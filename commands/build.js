@@ -73,13 +73,7 @@ module.exports = {
 
 
         const jeu =
-            interaction.options.getString("jeu");
-
-
-        if (!jeu) {
-            return interaction.respond([]);
-        }
-
+            interaction.options.getString("jeu") || "genshin";
 
 
         const texte =
@@ -89,8 +83,13 @@ module.exports = {
 
 
 
+        const liste =
+            builds[jeu] || {};
+
+
+
         const personnages =
-            Object.keys(builds[jeu] || {});
+            Object.keys(liste);
 
 
 
@@ -109,9 +108,12 @@ module.exports = {
 
             resultats.map(personnage => ({
 
-                name: personnage,
+                name:
+                personnage.charAt(0).toUpperCase()
+                + personnage.slice(1),
 
-                value: personnage
+                value:
+                personnage
 
             }))
 
@@ -154,6 +156,7 @@ module.exports = {
             });
 
         }
+
 
 
 
