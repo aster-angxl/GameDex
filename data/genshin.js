@@ -175,7 +175,7 @@ Neuvillette - Venti - Ororon - Furina
                     },
 
 
-                    {
+                                     {
                         title: "✨ Venti - Best Constellations",
                         description: `
 ✨ **Best Constellations**
@@ -196,34 +196,4 @@ C6
                 ]
             }
 
-        };
-
-
-        if (builds[personnage]) {
-
-            const embeds = builds[personnage].embeds.map(e =>
-                new EmbedBuilder()
-                    .setTitle(e.title)
-                    .setDescription(e.description)
-                   .setFooter({
-    text: `GameDex • Source : ${builds[personnage].source} • Update : ${builds[personnage].update}`
-})
-            );
-
-
-            await interaction.reply({
-                embeds: embeds,
-                flags: MessageFlags.Ephemeral
-            });
-
-
-        } else {
-
-            await interaction.reply({
-                content: `La fiche de build de **${personnage}** est en préparation !`,
-                flags: MessageFlags.Ephemeral
-            });
-
-        }
-    }
 };
