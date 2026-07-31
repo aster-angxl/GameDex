@@ -90,7 +90,9 @@ module.exports = {
 
         const personnages =
             Object.keys(liste);
-
+        
+console.log("Jeu :", jeu);
+console.log("Personnages :", personnages);
 
 
         const resultats =
