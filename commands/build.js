@@ -5,7 +5,7 @@ const {
 } = require("discord.js");
 
 
-const genshin = require("../data/genshin");
+const genshin = require("../data/Genshin");
 const hsr = require("../data/hsr.js");
 const wuwa = require("../data/wuwa.js");
 const arknights = require("../data/arknights.js");
