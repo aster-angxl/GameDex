@@ -8,7 +8,6 @@ module.exports = {
 
         update: "30/07/2026",
 
-
         embeds: [
 
             {
@@ -84,12 +83,10 @@ Viridescent Venerer (4pcs)
 Normal Attack > Elemental Burst > Elemental Skill
 `
             },
+                        {
+                title: "👥 Venti - Teams",
 
-
- {
-    title: "👥 Venti - Teams",
-
-    description: `
+                description: `
 ## 🤝 Compagnons notables
 
 ⚔️ **Main DPS**
@@ -180,7 +177,7 @@ Nahida - Venti - Kazuha - Bennett
 
 Emilie - Venti - Sucrose - Bennett
 `
-},
+            },
 
 
             {
@@ -204,9 +201,8 @@ C6
 
         ]
 
-    }
+    },
 
-    module.exports = {
 
     zibai: {
 
@@ -215,7 +211,6 @@ C6
         source: "Game8",
 
         update: "01/08/2026",
-
 
         embeds: [
 
@@ -269,19 +264,9 @@ Night of the Sky's Unveiling (4pcs)
 • DEF %
 • Elemental Mastery
 • Energy Recharge
-
-
-🎯 **Goal Stats**
-• DEF: 2,500+
-• CRIT Rate: 40~50% (Before Night of the Sky's Unveiling bonus)
-• CRIT DMG: 175%+
-• Elemental Mastery: 100-200
-• Energy Recharge: 110-130%
 `
             },
-
-
-            {
+                        {
                 title: "✨ Zibai - Talents & Artifacts",
 
                 description: `
@@ -323,7 +308,6 @@ Harbinger of Dawn
 
                 description: `
 ## 🤝 Notable Teammates
-
 
 🔹 **Sub-DPS**
 
@@ -396,7 +380,5 @@ C4
         ]
 
     }
-
-};
 
 };
