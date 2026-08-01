@@ -69,3 +69,114 @@ Night of the Sky's Unveiling (4pcs)
 • Energy Recharge: 110-130%
 `
         },
+
+
+        {
+            title: "✨ Zibai - Talents & Artifacts",
+
+            description: `
+📖 **Talent Priority**
+
+Elemental Skill > Elemental Burst > Normal Attack
+
+(Normal Attack can be ignored)
+
+
+📖 **Artifact Ranking**
+
+1. Night of the Sky's Unveiling
+2. Husk of Opulent Dreams
+3. Wanderer's Troupe / Husk of Opulent Dreams (2pcs x 2)
+
+
+⭐ **Best 4-Star Artifact**
+
+Instructor
+
+
+⚔️ **Best Weapons Ranking**
+
+1. Lightbearing Moonshard
+2. Uraku Misugiri
+3. Light of Foliar Incision
+
+
+🆓 **Best F2P Weapon**
+
+Harbinger of Dawn
+`
+        },
+                {
+            title: "👥 Zibai - Teams",
+
+            description: `
+## 🤝 Notable Teammates
+
+🔹 **Sub-DPS**
+
+• Linnea
+• Colombina
+• Chiori
+
+🛡️ **Support**
+
+• Linnea
+• Illuga
+• Colombina
+• Gorou
+
+
+━━━━━━━━━━━━━━━━━━
+
+
+## 🌙 Premium Lunar-Crystallize Teams
+
+**Main DPS - Sub-DPS/Support - Sub-DPS/Support - Support**
+
+Zibai - Colombina - Illuga - Linnea
+
+Zibai - Colombina - Illuga - Gorou
+
+Zibai - Aino - Illuga - Linnea
+
+Zibai - Furina - Colombina - Chiori
+
+
+━━━━━━━━━━━━━━━━━━
+
+
+## 🆓 F2P Lunar-Crystallize Teams
+
+**Main DPS - Sub-DPS/Support - Sub-DPS/Support - Support**
+
+Zibai - Aino - Gorou - Xingqiu
+
+Zibai - Aino - Yun Jin - Candace
+
+Zibai - Jahoda - Traveler (Geo) - Mona
+`
+        },
+
+
+        {
+            title: "✨ Zibai - Constellations",
+
+            description: `
+✨ **Best Constellations**
+
+C1
+⭐⭐☆
+
+C2
+⭐⭐⭐
+
+C4
+⭐⭐☆
+
+━━━━━━━━━━━━━━━━━━
+`
+        }
+
+    ]
+
+};
