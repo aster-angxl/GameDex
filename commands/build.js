@@ -90,9 +90,12 @@ module.exports = {
 
         const personnages =
             Object.keys(liste);
-        
-console.log("Jeu :", jeu);
-console.log("Personnages :", personnages);
+
+
+
+        console.log("Jeu :", jeu);
+        console.log("Personnages :", personnages);
+
 
 
         const resultats =
@@ -111,11 +114,11 @@ console.log("Personnages :", personnages);
             resultats.map(personnage => ({
 
                 name:
-                personnage.charAt(0).toUpperCase()
-                + personnage.slice(1),
+                    personnage.charAt(0).toUpperCase()
+                    + personnage.slice(1),
 
                 value:
-                personnage
+                    personnage
 
             }))
 
@@ -150,10 +153,10 @@ console.log("Personnages :", personnages);
             return interaction.reply({
 
                 content:
-                "Ce build n'existe pas encore.",
+                    "Ce build n'existe pas encore.",
 
                 flags:
-                MessageFlags.Ephemeral
+                    MessageFlags.Ephemeral
 
             });
 
@@ -174,11 +177,12 @@ console.log("Personnages :", personnages);
                     .setFooter({
 
                         text:
-                        `GameDex • Source : ${build.source} • Update : ${build.update}`
+                            `GameDex • Source : ${build.source} • Update : ${build.update}`
 
                     })
 
             );
+
 
 
 
@@ -187,7 +191,7 @@ console.log("Personnages :", personnages);
             embeds,
 
             flags:
-            MessageFlags.Ephemeral
+                MessageFlags.Ephemeral
 
         });
 
