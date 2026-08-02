@@ -10,28 +10,41 @@ const wuwa = require("../data/wuwa.js");
 const arknights = require("../data/arknights.js");
 
 
+
 const builds = {
+
     genshin,
     hsr,
     wuwa,
     arknights
+
 };
+
+
 
 
 
 module.exports = {
 
+
     data: new SlashCommandBuilder()
 
         .setName("build")
+
         .setDescription("Affiche un build de personnage")
 
 
+
         .addStringOption(option =>
+
             option
+
                 .setName("jeu")
+
                 .setDescription("Choisis un jeu")
+
                 .setRequired(true)
+
                 .addChoices(
 
                     {
@@ -55,16 +68,26 @@ module.exports = {
                     }
 
                 )
+
         )
 
 
+
         .addStringOption(option =>
+
             option
+
                 .setName("personnage")
+
                 .setDescription("Choisis un personnage")
+
                 .setRequired(true)
+
                 .setAutocomplete(true)
+
         ),
+
+
 
 
 
@@ -73,10 +96,14 @@ module.exports = {
 
 
         const jeu =
-            interaction.options.getString("jeu") || "genshin";
+
+            interaction.options.getString("jeu")
+            || "genshin";
+
 
 
         const texte =
+
             interaction.options
                 .getFocused()
                 .toLowerCase();
@@ -84,23 +111,33 @@ module.exports = {
 
 
         const liste =
-            builds[jeu] || {};
+
+            builds[jeu]
+            || {};
 
 
 
         const personnages =
+
             Object.keys(liste);
 
 
 
         const resultats =
+
             personnages
+
                 .filter(personnage =>
+
                     personnage
                         .toLowerCase()
                         .startsWith(texte)
+
                 )
+
                 .slice(0, 25);
+
+
 
 
 
@@ -109,23 +146,35 @@ module.exports = {
             resultats.map(personnage => ({
 
                 name:
+
                     personnage
+
                         .split(" ")
+
                         .map(mot =>
+
                             mot.charAt(0).toUpperCase()
                             + mot.slice(1)
+
                         )
+
                         .join(" "),
 
 
+
                 value:
+
                     personnage
 
             }))
 
         );
 
+
     },
+
+
+
 
 
 
@@ -134,41 +183,76 @@ module.exports = {
     async execute(interaction) {
 
 
-        console.log("Commande /build reçue");
+        console.log(
+            "Commande /build reçue"
+        );
+
+
+
+        // Réponse immédiate à Discord
+
+        await interaction.deferReply({
+
+            ephemeral: true
+
+        });
+
 
 
 
         try {
 
 
-            await interaction.deferReply({
-                ephemeral: true
-            });
-
-
-            console.log("Interaction confirmée");
-
-
 
             const jeu =
-                interaction.options.getString("jeu");
+
+                interaction.options
+                    .getString("jeu");
+
 
 
 
             const personnage =
+
                 interaction.options
+
                     .getString("personnage")
+
                     .toLowerCase();
 
 
 
-            console.log("Jeu :", jeu);
-            console.log("Personnage :", personnage);
+
+            console.log(
+                "Jeu :",
+                jeu
+            );
+
+
+            console.log(
+                "Personnage :",
+                personnage
+            );
+
+
+
+
+            console.log(
+                "Disponibles :",
+                Object.keys(builds[jeu] || {})
+            );
+
+
+
 
 
 
             const build =
+
                 builds[jeu]?.[personnage];
+
+
+
 
 
 
@@ -178,35 +262,48 @@ module.exports = {
                 return interaction.editReply({
 
                     content:
+
                         "Ce build n'existe pas encore."
 
                 });
+
 
             }
 
 
 
+
+
+
+
             const embeds =
+
                 build.embeds.map(e =>
+
 
                     new EmbedBuilder()
 
-                        .setTitle(e.title)
+                        .setTitle(
+                            e.title
+                        )
 
-                        .setDescription(e.description)
+                        .setDescription(
+                            e.description
+                        )
 
                         .setFooter({
 
                             text:
+
                                 `GameDex • Source : ${build.source} • Update : ${build.update}`
 
                         })
+
 
                 );
 
 
 
-            console.log("Envoi du build");
 
 
 
@@ -218,10 +315,16 @@ module.exports = {
 
 
 
-            console.log("Build envoyé");
+
+            console.log(
+                "Build envoyé"
+            );
+
+
 
 
         } catch(error) {
+
 
 
             console.error(
@@ -231,24 +334,14 @@ module.exports = {
 
 
 
-            if (
-                !interaction.replied &&
-                !interaction.deferred
-            ) {
+            await interaction.editReply({
 
+                content:
 
-                await interaction.reply({
+                    "Une erreur est survenue pendant le chargement du build."
 
-                    content:
-                        "Une erreur est survenue.",
+            });
 
-                    ephemeral:
-                        true
-
-                });
-
-
-            }
 
 
         }
