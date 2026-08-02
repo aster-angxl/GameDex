@@ -142,7 +142,10 @@ module.exports = {
                 .toLowerCase();
 
 
-
+console.log("Jeu :", jeu);
+console.log("Personnage reçu :", personnage);
+console.log("Builds disponibles :", Object.keys(builds[jeu]));
+        
         const build =
             builds[jeu]?.[personnage];
 
