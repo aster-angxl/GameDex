@@ -34,27 +34,22 @@ module.exports = {
                 .setDescription("Choisis un jeu")
                 .setRequired(true)
                 .addChoices(
-
                     {
                         name: "Genshin Impact",
                         value: "genshin"
                     },
-
                     {
                         name: "Honkai: Star Rail",
                         value: "hsr"
                     },
-
                     {
                         name: "Wuthering Waves",
                         value: "wuwa"
                     },
-
                     {
                         name: "Arknights: Endfield",
                         value: "arknights"
                     }
-
                 )
         )
 
@@ -71,7 +66,6 @@ module.exports = {
 
     async autocomplete(interaction) {
 
-
         const jeu =
             interaction.options.getString("jeu") || "genshin";
 
@@ -82,18 +76,15 @@ module.exports = {
                 .toLowerCase();
 
 
-
         const liste =
             builds[jeu] || {};
-
 
 
         const personnages =
             Object.keys(liste);
 
 
-
-        console.log("Jeu :", jeu);
+        console.log("Autocomplete jeu :", jeu);
         console.log("Personnages :", personnages);
 
 
@@ -114,8 +105,12 @@ module.exports = {
             resultats.map(personnage => ({
 
                 name:
-                    personnage.charAt(0).toUpperCase()
-                    + personnage.slice(1),
+                    personnage
+                        .split(" ")
+                        .map(mot =>
+                            mot.charAt(0).toUpperCase() + mot.slice(1)
+                        )
+                        .join(" "),
 
                 value:
                     personnage
@@ -128,75 +123,116 @@ module.exports = {
 
 
 
-
     async execute(interaction) {
 
-
-        const jeu =
-            interaction.options.getString("jeu");
+        console.log("Commande /build reçue");
 
 
-        const personnage =
-            interaction.options
-                .getString("personnage")
-                .toLowerCase();
+        try {
 
 
-console.log("Jeu :", jeu);
-console.log("Personnage reçu :", personnage);
-console.log("Builds disponibles :", Object.keys(builds[jeu]));
-        
-        const build =
-            builds[jeu]?.[personnage];
+            const jeu =
+                interaction.options.getString("jeu");
+
+
+            const personnage =
+                interaction.options
+                    .getString("personnage")
+                    .toLowerCase();
 
 
 
-        if (!build) {
+            console.log("Jeu :", jeu);
+            console.log("Personnage :", personnage);
+            console.log(
+                "Disponibles :",
+                Object.keys(builds[jeu] || {})
+            );
 
-            return interaction.reply({
 
-                content:
-                    "Ce build n'existe pas encore.",
+
+            const build =
+                builds[jeu]?.[personnage];
+
+
+
+            if (!build) {
+
+                return interaction.reply({
+
+                    content:
+                        "Ce build n'existe pas encore.",
+
+                    flags:
+                        MessageFlags.Ephemeral
+
+                });
+
+            }
+
+
+
+            const embeds =
+                build.embeds.map(e =>
+
+                    new EmbedBuilder()
+
+                        .setTitle(e.title)
+
+                        .setDescription(e.description)
+
+                        .setFooter({
+
+                            text:
+                                `GameDex • Source : ${build.source} • Update : ${build.update}`
+
+                        })
+
+                );
+
+
+
+            console.log("Envoi de la réponse");
+
+
+
+            await interaction.reply({
+
+                embeds,
 
                 flags:
                     MessageFlags.Ephemeral
 
             });
 
+
+
+            console.log("Réponse envoyée");
+
+
+
+        } catch (error) {
+
+
+            console.error("Erreur /build :", error);
+
+
+
+            if (!interaction.replied) {
+
+                await interaction.reply({
+
+                    content:
+                        "Une erreur est survenue pendant le chargement du build.",
+
+                    flags:
+                        MessageFlags.Ephemeral
+
+                });
+
+            }
+
         }
-
-
-
-
-        const embeds =
-            build.embeds.map(e =>
-
-                new EmbedBuilder()
-
-                    .setTitle(e.title)
-
-                    .setDescription(e.description)
-
-                    .setFooter({
-
-                        text:
-                            `GameDex • Source : ${build.source} • Update : ${build.update}`
-
-                    })
-
-            );
-
-
-
-
-        await interaction.reply({
-
-            embeds,
-
-            flags:
-                MessageFlags.Ephemeral
-
-        });
 
     }
 
