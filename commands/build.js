@@ -1,7 +1,6 @@
 const {
     SlashCommandBuilder,
-    EmbedBuilder,
-    MessageFlags
+    EmbedBuilder
 } = require("discord.js");
 
 
@@ -69,6 +68,7 @@ module.exports = {
 
 
 
+
     async autocomplete(interaction) {
 
 
@@ -90,11 +90,6 @@ module.exports = {
 
         const personnages =
             Object.keys(liste);
-
-
-
-        console.log("Autocomplete jeu :", jeu);
-        console.log("Personnages :", personnages);
 
 
 
@@ -135,17 +130,24 @@ module.exports = {
 
 
 
+
     async execute(interaction) {
+
 
         console.log("Commande /build reçue");
 
 
-        await interaction.deferReply({
-            flags: MessageFlags.Ephemeral
-        });
-
 
         try {
+
+
+            await interaction.deferReply({
+                ephemeral: true
+            });
+
+
+            console.log("Interaction confirmée");
+
 
 
             const jeu =
@@ -162,13 +164,6 @@ module.exports = {
 
             console.log("Jeu :", jeu);
             console.log("Personnage :", personnage);
-
-
-
-            console.log(
-                "Disponibles :",
-                Object.keys(builds[jeu] || {})
-            );
 
 
 
@@ -211,7 +206,7 @@ module.exports = {
 
 
 
-            console.log("Envoi de la réponse");
+            console.log("Envoi du build");
 
 
 
@@ -223,45 +218,43 @@ module.exports = {
 
 
 
-            console.log("Réponse envoyée");
+            console.log("Build envoyé");
+
+
+        } catch(error) {
+
+
+            console.error(
+                "Erreur /build :",
+                error
+            );
 
 
 
-        } catch (error) {
-
-
-            console.error("Erreur /build :", error);
-
-
-
-            if (!interaction.replied && !interaction.deferred) {
+            if (
+                !interaction.replied &&
+                !interaction.deferred
+            ) {
 
 
                 await interaction.reply({
 
                     content:
-                        "Une erreur est survenue pendant le chargement du build.",
+                        "Une erreur est survenue.",
 
-                    flags:
-                        MessageFlags.Ephemeral
-
-                });
-
-
-            } else if (interaction.deferred) {
-
-
-                await interaction.editReply({
-
-                    content:
-                        "Une erreur est survenue pendant le chargement du build."
+                    ephemeral:
+                        true
 
                 });
+
 
             }
 
+
         }
 
+
     }
+
 
 };
