@@ -115,7 +115,12 @@ client.on(
     "interactionCreate",
     async interaction => {
 
-
+console.log(
+    "INTERACTION RECUE:",
+    interaction.commandName,
+    Date.now()
+);
+        
         try {
 
 
