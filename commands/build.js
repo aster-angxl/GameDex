@@ -196,14 +196,16 @@ module.exports = {
 
 
 
-            await interaction.reply({
+          await interaction.deferReply({
+    flags: MessageFlags.Ephemeral
+});
 
-                embeds,
 
-                flags:
-                    MessageFlags.Ephemeral
+await interaction.editReply({
 
-            });
+    embeds
+
+});
 
 
 
