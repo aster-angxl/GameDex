@@ -11,14 +11,21 @@ const http = require("http");
 
 // Serveur Render
 http.createServer((req, res) => {
+
     res.writeHead(200);
     res.end("Bot en ligne !");
+
 }).listen(process.env.PORT || 3000, () => {
+
     console.log("Serveur web démarré pour Render");
+
 });
 
 
+
+
 // Client Discord
+
 const client = new Client({
 
     intents: [
@@ -33,7 +40,9 @@ client.commands = new Collection();
 
 
 
+
 // Chargement commandes
+
 const build = require("./commands/build.js");
 
 client.commands.set(
@@ -45,7 +54,7 @@ client.commands.set(
 
 
 
-// Connexion du bot
+// Quand le bot est prêt
 
 client.once("ready", async () => {
 
@@ -55,8 +64,11 @@ client.once("ready", async () => {
     );
 
 
+
     const rest = new REST({
+
         version: "10"
+
     }).setToken(
         process.env.DISCORD_TOKEN
     );
@@ -88,6 +100,7 @@ client.once("ready", async () => {
         );
 
 
+
     } catch(error) {
 
 
@@ -108,64 +121,26 @@ client.once("ready", async () => {
 
 
 
-
-// Gestion interactions
+// Interactions Discord
 
 client.on(
     "interactionCreate",
     async interaction => {
 
-console.log(
-    "INTERACTION RECUE:",
-    interaction.commandName,
-    Date.now()
-);
-        
-        try {
 
-
-
-            // Autocomplete
-
-            if (
-                interaction.isAutocomplete()
-            ) {
-
-
-                const command =
-                    client.commands.get(
-                        interaction.commandName
-                    );
-
-
-
-                if (
-                    !command ||
-                    !command.autocomplete
-                ) return;
-
-
-
-                await command.autocomplete(
-                    interaction
-                );
-
-
-                return;
-
-            }
+        console.log(
+            "INTERACTION RECUE :",
+            interaction.type,
+            interaction.commandName,
+            new Date().toISOString()
+        );
 
 
 
 
+        // Autocomplete
 
-
-            // Slash commandes
-
-            if (
-                !interaction.isChatInputCommand()
-            ) return;
-
+        if (interaction.isAutocomplete()) {
 
 
             const command =
@@ -174,14 +149,75 @@ console.log(
                 );
 
 
+            if (
+                !command ||
+                !command.autocomplete
+            ) return;
 
-            if (!command) return;
 
+
+            try {
+
+                await command.autocomplete(
+                    interaction
+                );
+
+
+            } catch(error) {
+
+                console.error(
+                    "Erreur autocomplete :",
+                    error
+                );
+
+            }
+
+
+            return;
+
+        }
+
+
+
+
+
+
+
+        // Commandes slash
+
+        if (!interaction.isChatInputCommand()) return;
+
+
+
+        const command =
+            client.commands.get(
+                interaction.commandName
+            );
+
+
+
+        if (!command) return;
+
+
+
+
+        try {
+
+
+            console.log(
+                "Lancement execute()"
+            );
 
 
 
             await command.execute(
                 interaction
+            );
+
+
+
+            console.log(
+                "Execute terminé"
             );
 
 
@@ -197,42 +233,53 @@ console.log(
 
 
 
-            if (
-                interaction.deferred &&
-                !interaction.replied
-            ) {
+            try {
 
 
-                await interaction.editReply({
+                if (
+                    interaction.replied ||
+                    interaction.deferred
+                ) {
 
-                    content:
-                    "Une erreur est survenue."
 
-                });
+                    await interaction.followUp({
+
+                        content:
+                            "Une erreur est survenue.",
+
+                        ephemeral:
+                            true
+
+                    });
+
+
+                } else {
+
+
+                    await interaction.reply({
+
+                        content:
+                            "Une erreur est survenue.",
+
+                        ephemeral:
+                            true
+
+                    });
+
+
+                }
+
+
+            } catch(err) {
+
+
+                console.error(
+                    "Erreur réponse Discord :",
+                    err
+                );
 
 
             }
-
-
-            else if (
-                !interaction.replied &&
-                !interaction.deferred
-            ) {
-
-
-                await interaction.reply({
-
-                    content:
-                    "Une erreur est survenue.",
-
-                    ephemeral:
-                    true
-
-                });
-
-
-            }
-
 
 
         }
@@ -247,12 +294,10 @@ console.log(
 
 
 
-
-
 // Logs
 
 console.log(
-    "Token présent:",
+    "Token présent :",
     !!process.env.DISCORD_TOKEN
 );
 
@@ -276,27 +321,12 @@ client.on(
 
 
 client.on(
-    "shardError",
-    err => console.error(err)
-);
-
-
-client.on(
     "shardReady",
     id => console.log(
-        "Shard prêt:",
+        "Shard prêt :",
         id
     )
 );
-
-
-client.on(
-    "invalidated",
-    () => console.log(
-        "Session invalidée"
-    )
-);
-
 
 
 
@@ -322,9 +352,11 @@ client.login(
 
 .catch(err => {
 
+
     console.error(
-        "Erreur de login :",
+        "Erreur login :",
         err
     );
+
 
 });
