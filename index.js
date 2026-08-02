@@ -8,6 +8,8 @@ const {
 
 const http = require("http");
 
+
+// Serveur Render
 http.createServer((req, res) => {
     res.writeHead(200);
     res.end("Bot en ligne !");
@@ -16,109 +18,233 @@ http.createServer((req, res) => {
 });
 
 
+// Client Discord
 const client = new Client({
+
     intents: [
         GatewayIntentBits.Guilds
     ]
+
 });
+
 
 
 client.commands = new Collection();
 
 
-// Chargement de la commande
+
+// Chargement commandes
 const build = require("./commands/build.js");
-client.commands.set(build.data.name, build);
+
+client.commands.set(
+    build.data.name,
+    build
+);
 
 
+
+
+
+// Connexion du bot
 
 client.once("ready", async () => {
 
-    console.log(`Connecté en tant que ${client.user.tag}`);
+
+    console.log(
+        `Connecté en tant que ${client.user.tag}`
+    );
+
 
     const rest = new REST({
         version: "10"
-    }).setToken(process.env.DISCORD_TOKEN);
+    }).setToken(
+        process.env.DISCORD_TOKEN
+    );
+
+
 
     try {
 
+
         await rest.put(
-            Routes.applicationCommands(client.user.id),
+
+            Routes.applicationCommands(
+                client.user.id
+            ),
+
             {
+
                 body: [
                     build.data.toJSON()
                 ]
+
             }
+
         );
 
-        console.log("Commande /build enregistrée !");
 
-    } catch (error) {
+        console.log(
+            "Commande /build enregistrée !"
+        );
 
-        console.error(error);
+
+    } catch(error) {
+
+
+        console.error(
+            "Erreur enregistrement commandes :",
+            error
+        );
+
 
     }
+
 
 });
 
 
 
-// INTERACTIONS
-
-client.on("interactionCreate", async interaction => {
-
-
-    // AUTOCOMPLÉTION
-
-    if (interaction.isAutocomplete()) {
-
-        const command = client.commands.get(interaction.commandName);
-
-        if (!command || !command.autocomplete) return;
-
-        return command.autocomplete(interaction);
-
-    }
 
 
 
-    // COMMANDES
 
-    if (!interaction.isChatInputCommand()) return;
 
-    const command = client.commands.get(interaction.commandName);
+// Gestion interactions
 
-    if (!command) return;
+client.on(
+    "interactionCreate",
+    async interaction => {
 
-    try {
 
-        await command.execute(interaction);
+        try {
 
-    } catch (error) {
 
-        console.error(error);
 
-        if (interaction.replied || interaction.deferred) {
+            // Autocomplete
 
-            await interaction.followUp({
-                content: "Une erreur est survenue.",
-                ephemeral: true
-            });
+            if (
+                interaction.isAutocomplete()
+            ) {
 
-        } else {
 
-            await interaction.reply({
-                content: "Une erreur est survenue.",
-                ephemeral: true
-            });
+                const command =
+                    client.commands.get(
+                        interaction.commandName
+                    );
+
+
+
+                if (
+                    !command ||
+                    !command.autocomplete
+                ) return;
+
+
+
+                await command.autocomplete(
+                    interaction
+                );
+
+
+                return;
+
+            }
+
+
+
+
+
+
+            // Slash commandes
+
+            if (
+                !interaction.isChatInputCommand()
+            ) return;
+
+
+
+            const command =
+                client.commands.get(
+                    interaction.commandName
+                );
+
+
+
+            if (!command) return;
+
+
+
+
+            await command.execute(
+                interaction
+            );
+
+
+
+        } catch(error) {
+
+
+
+            console.error(
+                "Erreur interaction :",
+                error
+            );
+
+
+
+            if (
+                interaction.deferred &&
+                !interaction.replied
+            ) {
+
+
+                await interaction.editReply({
+
+                    content:
+                    "Une erreur est survenue."
+
+                });
+
+
+            }
+
+
+            else if (
+                !interaction.replied &&
+                !interaction.deferred
+            ) {
+
+
+                await interaction.reply({
+
+                    content:
+                    "Une erreur est survenue.",
+
+                    ephemeral:
+                    true
+
+                });
+
+
+            }
+
+
 
         }
 
+
     }
 
-});
+);
 
 
+
+
+
+
+
+
+// Logs
 
 console.log(
     "Token présent:",
@@ -126,45 +252,74 @@ console.log(
 );
 
 
-
-client.on("error", err =>
-    console.error(err)
+client.on(
+    "error",
+    err => console.error(err)
 );
 
-client.on("debug", msg =>
-    console.log("[DEBUG]", msg)
+
+client.on(
+    "debug",
+    msg => console.log("[DEBUG]", msg)
 );
 
-client.on("warn", msg =>
-    console.log("[WARN]", msg)
+
+client.on(
+    "warn",
+    msg => console.log("[WARN]", msg)
 );
 
-client.on("shardError", err =>
-    console.error(err)
+
+client.on(
+    "shardError",
+    err => console.error(err)
 );
 
-client.on("shardReady", id => {
 
-    console.log("Shard prêt:", id);
-
-});
-
-client.on("invalidated", () => {
-
-    console.log("Session invalidée");
-
-});
+client.on(
+    "shardReady",
+    id => console.log(
+        "Shard prêt:",
+        id
+    )
+);
 
 
+client.on(
+    "invalidated",
+    () => console.log(
+        "Session invalidée"
+    )
+);
 
-console.log("Avant login");
 
-client.login(process.env.DISCORD_TOKEN)
 
-.then(() =>
-    console.log("Login envoyé à Discord")
+
+
+
+console.log(
+    "Avant login"
+);
+
+
+
+client.login(
+    process.env.DISCORD_TOKEN
 )
 
-.catch(err =>
-    console.error("Erreur de login :", err)
-);
+.then(() => {
+
+    console.log(
+        "Login envoyé à Discord"
+    );
+
+})
+
+.catch(err => {
+
+    console.error(
+        "Erreur de login :",
+        err
+    );
+
+});
