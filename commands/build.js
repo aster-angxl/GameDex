@@ -34,22 +34,27 @@ module.exports = {
                 .setDescription("Choisis un jeu")
                 .setRequired(true)
                 .addChoices(
+
                     {
                         name: "Genshin Impact",
                         value: "genshin"
                     },
+
                     {
                         name: "Honkai: Star Rail",
                         value: "hsr"
                     },
+
                     {
                         name: "Wuthering Waves",
                         value: "wuwa"
                     },
+
                     {
                         name: "Arknights: Endfield",
                         value: "arknights"
                     }
+
                 )
         )
 
@@ -66,6 +71,7 @@ module.exports = {
 
     async autocomplete(interaction) {
 
+
         const jeu =
             interaction.options.getString("jeu") || "genshin";
 
@@ -76,12 +82,15 @@ module.exports = {
                 .toLowerCase();
 
 
+
         const liste =
             builds[jeu] || {};
 
 
+
         const personnages =
             Object.keys(liste);
+
 
 
         console.log("Autocomplete jeu :", jeu);
@@ -108,9 +117,11 @@ module.exports = {
                     personnage
                         .split(" ")
                         .map(mot =>
-                            mot.charAt(0).toUpperCase() + mot.slice(1)
+                            mot.charAt(0).toUpperCase()
+                            + mot.slice(1)
                         )
                         .join(" "),
+
 
                 value:
                     personnage
@@ -123,9 +134,15 @@ module.exports = {
 
 
 
+
     async execute(interaction) {
 
         console.log("Commande /build reçue");
+
+
+        await interaction.deferReply({
+            flags: MessageFlags.Ephemeral
+        });
 
 
         try {
@@ -133,6 +150,7 @@ module.exports = {
 
             const jeu =
                 interaction.options.getString("jeu");
+
 
 
             const personnage =
@@ -144,6 +162,9 @@ module.exports = {
 
             console.log("Jeu :", jeu);
             console.log("Personnage :", personnage);
+
+
+
             console.log(
                 "Disponibles :",
                 Object.keys(builds[jeu] || {})
@@ -158,13 +179,11 @@ module.exports = {
 
             if (!build) {
 
-                return interaction.reply({
+
+                return interaction.editReply({
 
                     content:
-                        "Ce build n'existe pas encore.",
-
-                    flags:
-                        MessageFlags.Ephemeral
+                        "Ce build n'existe pas encore."
 
                 });
 
@@ -196,16 +215,11 @@ module.exports = {
 
 
 
-          await interaction.deferReply({
-    flags: MessageFlags.Ephemeral
-});
+            await interaction.editReply({
 
+                embeds
 
-await interaction.editReply({
-
-    embeds
-
-});
+            });
 
 
 
@@ -220,7 +234,8 @@ await interaction.editReply({
 
 
 
-            if (!interaction.replied) {
+            if (!interaction.replied && !interaction.deferred) {
+
 
                 await interaction.reply({
 
@@ -229,6 +244,17 @@ await interaction.editReply({
 
                     flags:
                         MessageFlags.Ephemeral
+
+                });
+
+
+            } else if (interaction.deferred) {
+
+
+                await interaction.editReply({
+
+                    content:
+                        "Une erreur est survenue pendant le chargement du build."
 
                 });
 
