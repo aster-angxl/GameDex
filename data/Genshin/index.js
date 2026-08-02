@@ -4,6 +4,6 @@ module.exports = {
 
     zibai: require("./characters/Liyue/zibai.js"), 
 
-    "Yae Miko": require("./characters/Inazuma/yaemiko.js")
+    "yae miko": require("./characters/Inazuma/yaemiko.js")
 
 };
